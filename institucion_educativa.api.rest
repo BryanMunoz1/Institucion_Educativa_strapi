@@ -1,0 +1,61 @@
+# 📌 Obtener todos los estudiantes
+GET http://localhost:1337/api/estudiantes
+
+# 📌 Obtener un estudiante por ID
+GET http://localhost:1337/api/estudiantes/1
+
+# 📌 Crear un estudiante
+POST http://localhost:1337/api/estudiantes
+Content-Type: application/json
+
+{
+  "data": {
+    "nombre": "Pedro",
+    "apellido": "Martínez",
+    "fecha_nacimiento": "2002-04-15",
+    "correo_electronico": "pedro@example.com",
+    "telefono": "1122334455"
+  }
+}
+
+# 📌 Obtener todos los cursos
+GET http://localhost:1337/api/cursos
+
+# 📌 Obtener un curso por ID
+GET http://localhost:1337/api/cursos/1
+
+# 📌 Crear un curso
+POST http://localhost:1337/api/cursos
+Content-Type: application/json
+
+{
+  "data": {
+    "nombre": "Física",
+    "descripcion": "Curso de mecánica clásica",
+    "fecha_inicio": "2024-03-01",
+    "fecha_fin": "2024-06-30",
+    "creditos": 6,
+    "capacidad_maxima": 20
+  }
+}
+
+# 📌 Matricular un estudiante en un curso
+POST http://localhost:1337/api/matriculas
+Content-Type: application/json
+
+{
+  "data": {
+    "fecha_matricula": "2024-03-10",
+    "estudiante": 1,
+    "curso": 1
+  }
+}
+
+# 📌 Obtener las matrículas de un estudiante
+GET http://localhost:1337/api/estudiantes/1?populate=matriculas.curso
+
+# 📌 Obtener la lista de estudiantes de un curso
+GET http://localhost:1337/api/cursos/1?populate=matriculas.estudiante
+
+# 📌 Contar cuántos estudiantes hay en un curso
+GET http://localhost:1337/api/cursos/1?populate=matriculas

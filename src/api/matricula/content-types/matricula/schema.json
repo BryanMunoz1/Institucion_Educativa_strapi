@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matriculas",
+  "info": {
+    "singularName": "matricula",
+    "pluralName": "matriculas",
+    "displayName": "matriculas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fecha_matricula": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
