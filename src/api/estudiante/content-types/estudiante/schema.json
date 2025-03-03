@@ -28,8 +28,14 @@
       "unique": true
     },
     "telefono": {
-      "type": "string", 
+      "type": "string",
       "required": true
+    },
+    "matricula": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::matricula.matricula",
+      "inversedBy": "estudiantes"
     }
   }
 }

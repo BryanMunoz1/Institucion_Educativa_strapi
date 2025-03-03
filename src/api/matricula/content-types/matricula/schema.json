@@ -4,7 +4,8 @@
   "info": {
     "singularName": "matricula",
     "pluralName": "matriculas",
-    "displayName": "matriculas"
+    "displayName": "matriculas",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,18 @@
     "fecha_matricula": {
       "type": "date",
       "required": true
+    },
+    "estudiantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::estudiante.estudiante",
+      "mappedBy": "matricula"
+    },
+    "cursos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso",
+      "mappedBy": "matricula"
     }
   }
 }

@@ -391,6 +391,10 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
       Schema.Attribute.Private;
+    matricula: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::matricula.matricula'
+    >;
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -424,6 +428,10 @@ export interface ApiEstudianteEstudiante extends Struct.CollectionTypeSchema {
       'api::estudiante.estudiante'
     > &
       Schema.Attribute.Private;
+    matricula: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::matricula.matricula'
+    >;
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     telefono: Schema.Attribute.String & Schema.Attribute.Required;
@@ -436,6 +444,7 @@ export interface ApiEstudianteEstudiante extends Struct.CollectionTypeSchema {
 export interface ApiMatriculaMatricula extends Struct.CollectionTypeSchema {
   collectionName: 'matriculas';
   info: {
+    description: '';
     displayName: 'matriculas';
     pluralName: 'matriculas';
     singularName: 'matricula';
@@ -447,6 +456,11 @@ export interface ApiMatriculaMatricula extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    cursos: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'>;
+    estudiantes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::estudiante.estudiante'
+    >;
     fecha_matricula: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

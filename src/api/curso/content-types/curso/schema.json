@@ -32,6 +32,12 @@
     "capacidad_maxima": {
       "type": "integer",
       "required": true
+    },
+    "matricula": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::matricula.matricula",
+      "inversedBy": "cursos"
     }
   }
 }
