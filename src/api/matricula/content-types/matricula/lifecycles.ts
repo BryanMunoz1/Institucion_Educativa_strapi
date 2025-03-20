@@ -7,7 +7,7 @@ module.exports = {
       // Verificar si ya existe una matrícula para este estudiante en este curso
       const existingMatriculas = await strapi.entityService.findMany('api::matricula.matricula', {
         filters: {
-          estudiante: estudiante,
+          estudiantes: estudiante,
           curso: curso
         }
       });
@@ -28,10 +28,10 @@ module.exports = {
       
       // Verificar la capacidad máxima del curso
       const targetCurso = await strapi.entityService.findOne('api::curso.curso', curso, {
-        populate: ['matriculas']
+        populate: ['matricula']
       });
       
-      if (targetCurso.matriculas.length >= targetCurso.capacidad_maxima) {
+      if (targetCurso.matricula.length >= targetCurso.capacidad_maxima) {
         throw new Error('El curso ha alcanzado su capacidad máxima de estudiantes.');
       }
     }
