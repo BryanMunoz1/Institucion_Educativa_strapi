@@ -4,8 +4,8 @@
   "info": {
     "singularName": "matricula",
     "pluralName": "matriculas",
-    "displayName": "matriculas",
-    "description": ""
+    "displayName": "Matriculas",
+    "description": "Registro de matrículas de estudiantes en cursos"
   },
   "options": {
     "draftAndPublish": true

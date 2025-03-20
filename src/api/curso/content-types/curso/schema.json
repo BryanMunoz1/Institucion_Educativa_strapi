@@ -4,7 +4,7 @@
   "info": {
     "singularName": "curso",
     "pluralName": "cursos",
-    "displayName": "cursos"
+    "displayName": "Cursos"
   },
   "options": {
     "draftAndPublish": true

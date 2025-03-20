@@ -372,7 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
   collectionName: 'cursos';
   info: {
-    displayName: 'cursos';
+    displayName: 'Cursos';
     pluralName: 'cursos';
     singularName: 'curso';
   };
@@ -444,8 +444,8 @@ export interface ApiEstudianteEstudiante extends Struct.CollectionTypeSchema {
 export interface ApiMatriculaMatricula extends Struct.CollectionTypeSchema {
   collectionName: 'matriculas';
   info: {
-    description: '';
-    displayName: 'matriculas';
+    description: 'Registro de matr\u00EDculas de estudiantes en cursos';
+    displayName: 'Matriculas';
     pluralName: 'matriculas';
     singularName: 'matricula';
   };
