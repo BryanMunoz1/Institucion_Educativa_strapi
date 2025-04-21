@@ -1,12 +1,15 @@
-// api/matricula/middlewares/validation.js
 'use strict';
 
-module.exports = (config, { strapi }) => {
-  return async (ctx, next) => {
+module.exports = {
+  name: 'validation',
+  config: {
+    // Optional config
+  },
+  async handler(ctx, next) {
     const { curso_id, estudiante_id } = ctx.request.body.data || {};
     
-    // Only run this validation on create
-    if (ctx.method === 'POST' && curso_id && estudiante_id) {
+    // Only run this validation on create and for matriculas endpoint
+    if (ctx.method === 'POST' && ctx.url.includes('/matriculas') && curso_id && estudiante_id) {
       // Check if student is already enrolled in this course
       const existingEnrollment = await strapi.db.query('api::matricula.matricula').findOne({
         where: {
@@ -34,5 +37,5 @@ module.exports = (config, { strapi }) => {
     }
     
     await next();
-  };
+  }
 };

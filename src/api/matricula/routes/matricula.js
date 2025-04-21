@@ -1,4 +1,3 @@
-// api/matricula/routes/matricula.js
 'use strict';
 
 module.exports = {
@@ -11,7 +10,6 @@ module.exports = {
         middlewares: ['api::matricula.validation'],
       },
     },
-    // Keep the default routes
     {
       method: 'GET',
       path: '/matriculas',
