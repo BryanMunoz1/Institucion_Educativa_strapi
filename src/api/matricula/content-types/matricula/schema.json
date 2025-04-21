@@ -4,28 +4,29 @@
   "info": {
     "singularName": "matricula",
     "pluralName": "matriculas",
-    "displayName": "Matriculas",
+    "displayName": "Matrícula",
     "description": "Registro de matrículas de estudiantes en cursos"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "fecha_matricula": {
       "type": "date",
-      "required": true
+      "required": true,
+      "default": "2023-01-01"
     },
-    "estudiantes": {
+    "estudiante": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::estudiante.estudiante",
-      "mappedBy": "matricula"
+      "inversedBy": "matriculas"
     },
-    "cursos": {
+    "curso": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::curso.curso",
-      "mappedBy": "matricula"
+      "inversedBy": "matriculas"
     }
   }
 }

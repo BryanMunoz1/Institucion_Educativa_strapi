@@ -4,10 +4,11 @@
   "info": {
     "singularName": "estudiante",
     "pluralName": "estudiantes",
-    "displayName": "Estudiantes"
+    "displayName": "Estudiante",
+    "description": "Información sobre los estudiantes"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "nombre": {
@@ -31,11 +32,11 @@
       "type": "string",
       "required": true
     },
-    "matricula": {
+    "matriculas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::matricula.matricula",
-      "inversedBy": "estudiantes"
+      "mappedBy": "estudiante"
     }
   }
 }

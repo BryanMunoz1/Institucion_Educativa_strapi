@@ -4,7 +4,8 @@
   "info": {
     "singularName": "curso",
     "pluralName": "cursos",
-    "displayName": "Cursos"
+    "displayName": "Curso",
+    "description": "Información sobre los cursos ofrecidos"
   },
   "options": {
     "draftAndPublish": true
@@ -27,17 +28,19 @@
     },
     "creditos": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 1
     },
     "capacidad_maxima": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 1
     },
-    "matricula": {
+    "matriculas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::matricula.matricula",
-      "inversedBy": "cursos"
+      "mappedBy": "curso"
     }
   }
 }
